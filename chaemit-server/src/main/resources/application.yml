@@ -1,0 +1,21 @@
+
+cloud:
+  aws:
+    s3:
+      bucket: chaemit-bucket
+    credentials:
+      access-key: AKIAX5J6AMUD62DIBOOC
+      secret-key: 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
+    region:
+      static: ap-northeast-2
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 128MB
+      max-request-size: 128MB
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
