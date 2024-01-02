@@ -72,6 +72,17 @@ class StateUtils {
             return branchFile.readText().trim()
         }
 
+        fun getLastCommitContent(chaemitDir: String): String {
+            val lastCommitHash = getLastCommitHash(chaemitDir)
+            val lastCommitFile = File(chaemitDir, "objects/$lastCommitHash")
+            val lastCommitContent = if (lastCommitFile.exists() && lastCommitFile.isFile) {
+                lastCommitFile.readText()
+            } else {
+                ""
+            }
+            return lastCommitContent
+        }
+
         fun getLastCommitState(chaemitDir: String): Map<String, String> {
             val lastCommitHash = getLastCommitHash(chaemitDir)
             val (rootTreePath, rootTreeChecksum) = getCommitRootTree(lastCommitHash, chaemitDir)

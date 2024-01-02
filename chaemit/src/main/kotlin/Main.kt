@@ -110,6 +110,12 @@ fun main(args: Array<String>) {
                     pull(chaemitDir, "main")
                 }
             }
+            "stash" -> {
+                if (args.size > 1)
+                    stashPop(chaemitDir)
+                else
+                    stash(chaemitDir)
+            }
             else -> {
                 println("Unknown command: ${args[0]}")
             }
